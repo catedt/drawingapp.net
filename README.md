@@ -28,8 +28,8 @@ This project is licensed under the **PolyForm Noncommercial License 1.0.0**.
 - [v] Free for personal, educational, and non-commercial use
 - [v] Free for non-profit organizations
 - [v] Free to study, modify, and contribute
-- [x] Commercial use requires a paid license
-- [x] Redistribution of compiled builds is not permitted
+- [-] Commercial use requires a paid license
+- [-] Redistribution of compiled builds is not permitted
 
 For commercial licensing: catedt@gmail.com
 
