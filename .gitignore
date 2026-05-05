@@ -58,4 +58,7 @@ nunit-*.xml
 
 *.dwarf
 *.dsym/
-/Folder.DotSettings.user
+*.DotSettings.user
+
+.idea/
+.DS_Store
