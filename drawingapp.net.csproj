@@ -6,17 +6,16 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <PublishAot>true</PublishAot>
-      <TrimMode>partial</TrimMode>
+    <TrimMode>partial</TrimMode>
     <InvariantGlobalization>true</InvariantGlobalization>
     <StripSymbols>true</StripSymbols>
   </PropertyGroup>
-    
-    <PropertyGroup Condition="'$(PublishAot)' == 'true'">
-        <CppCompilerAndLinker>/usr/bin/clang</CppCompilerAndLinker>
+ 
+  <PropertyGroup Condition="'$(PublishAot)' == 'true'">
+    <CppCompilerAndLinker>/usr/bin/clang</CppCompilerAndLinker>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
