@@ -12,6 +12,9 @@ public class DrawingCanvas : Control
 
     private Stroke? _currentStroke;
     
+    public IBrush StrokeBrush { get; set; } = Brushes.Black;
+    public double StrokeThickness { get; set; } = 4.0;
+    
     public DrawingCanvas()
     {
         Focusable = true;
@@ -21,7 +24,7 @@ public class DrawingCanvas : Control
     {
         base.OnPointerPressed(e);
 
-        _currentStroke = new Stroke(thickness: 4.0);
+        _currentStroke = new Stroke(thickness: StrokeThickness);
         _currentStroke.AddPoint(e.GetPosition(this));
         
         InvalidateVisual();
@@ -73,7 +76,7 @@ public class DrawingCanvas : Control
     {
         if (stroke.Points.Count < 2) return;
 
-        var pen = new Pen(Brushes.Black, stroke.Thickness)
+        var pen = new Pen(StrokeBrush, stroke.Thickness)
         {
             LineCap = PenLineCap.Round,
             LineJoin = PenLineJoin.Round,
