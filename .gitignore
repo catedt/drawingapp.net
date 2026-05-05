@@ -58,3 +58,4 @@ nunit-*.xml
 
 *.dwarf
 *.dsym/
+/Folder.DotSettings.user
