@@ -1,0 +1,18 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:drawingapp.net.ViewModels"
+        xmlns:views="using:drawingapp.net.Views"
+        x:Class="drawingapp.net.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="drawingapp.net"
+        Width="1024" Height="768"
+        MinWidth="600" MinHeight="400">
+
+  <Window.DataContext>
+      <vm:MainWindowViewModel/>
+  </Window.DataContext>
+
+    <Border Padding="16" Background="#F5F5F5">
+        <views:DrawingCanvas/>
+    </Border>
+</Window>
