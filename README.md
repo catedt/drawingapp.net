@@ -5,6 +5,10 @@ A simple, lightweight drawing app for Mac, Windows, and Linux.
 > **Status**: 🚧 Early development (v0.0.1) - Not yet released
 
 
+## Demo
+![Drawing in action](docs/drawing.net_demo_01.gif)
+
+
 ## Tech Stack
 
 - **Language**: C# (.NET 10)
@@ -47,5 +51,3 @@ Contributions welcome! By contributing, you agree to license your contributions 
 
 [catedt] - [catedt@gmail.com]
 
-## Demo
-![Drawing in action](docs/drawing.net_demo_01.gif)
