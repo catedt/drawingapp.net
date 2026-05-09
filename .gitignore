@@ -62,3 +62,4 @@ nunit-*.xml
 
 .idea/
 .DS_Store
+/NEXT.md
