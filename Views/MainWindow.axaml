@@ -13,6 +13,6 @@
   </Window.DataContext>
 
     <Border Padding="16" Background="#F5F5F5">
-        <views:DrawingCanvas/>
+        <views:DrawingCanvas ViewModel="{Binding Canvas}"/>
     </Border>
 </Window>

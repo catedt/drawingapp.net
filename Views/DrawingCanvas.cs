@@ -1,19 +1,34 @@
 using System.Collections.Generic;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
 using drawingapp.net.Models;
+using drawingapp.net.ViewModels;
 
 namespace drawingapp.net.Views;
 
 public class DrawingCanvas : Control
-{
-    private readonly List<Stroke> _strokes = new();
+{ 
+    public static readonly StyledProperty<DrawingCanvasViewModel> ViewModelProperty= 
+        AvaloniaProperty.Register<DrawingCanvas, DrawingCanvasViewModel?>(nameof(ViewModel));
 
+    public DrawingCanvasViewModel? ViewModel
+    {
+        get => GetValue(ViewModelProperty);
+        set => SetValue(ViewModelProperty, value);
+    }
+    
+    private readonly List<Stroke> _strokes = new();
     private Stroke? _currentStroke;
     
     public IBrush StrokeBrush { get; set; } = Brushes.Black;
     public double StrokeThickness { get; set; } = 4.0;
+
+    static DrawingCanvas()
+    {
+        AffectsRender<DrawingCanvas>(ViewModelProperty);
+    }
     
     public DrawingCanvas()
     {
@@ -23,14 +38,19 @@ public class DrawingCanvas : Control
     protected override void OnPointerPressed(PointerPressedEventArgs e)
     {
         base.OnPointerPressed(e);
+        
+        var vm = ViewModel;
+        if (vm == null) return;
+        
+        bool isEraser = vm.CurrentTool == Tool.Eraser;
+        var color = isEraser ? Colors.White : vm.CurrentColor;
 
-        _currentStroke = new Stroke(thickness: StrokeThickness);
+        _currentStroke = new Stroke(color: color, vm.CurrentThickness, isEraser: isEraser);
         _currentStroke.AddPoint(e.GetPosition(this));
         
         InvalidateVisual();
 
         e.Pointer.Capture(this);
-        
         e.Handled = true;
     }
 
@@ -76,7 +96,8 @@ public class DrawingCanvas : Control
     {
         if (stroke.Points.Count < 2) return;
 
-        var pen = new Pen(StrokeBrush, stroke.Thickness)
+        var brush = new SolidColorBrush(stroke.Color);
+        var pen = new Pen(brush, stroke.Thickness)
         {
             LineCap = PenLineCap.Round,
             LineJoin = PenLineJoin.Round,
