@@ -11,8 +11,13 @@
   <Window.DataContext>
       <vm:MainWindowViewModel/>
   </Window.DataContext>
+    <DockPanel>
+        <views:ToolPanel DockPanel.Dock="Left"
+                 DataContext="{Binding Canvas}"/>
+        
+        <Border Padding="16" Background="#F5F5F5">
+            <views:DrawingCanvas ViewModel="{Binding Canvas}"/>
+        </Border>
+    </DockPanel>
 
-    <Border Padding="16" Background="#F5F5F5">
-        <views:DrawingCanvas ViewModel="{Binding Canvas}"/>
-    </Border>
 </Window>

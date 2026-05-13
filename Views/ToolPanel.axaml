@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:drawingapp.net.ViewModels"
+             xmlns:models="using:drawingapp.net.Models"
+             x:Class="drawingapp.net.Views.ToolPanel"
+             x:DataType="vm:DrawingCanvasViewModel">
+    
+    <Border Background="#FAFAFA"
+            BorderBrush="#E0E0E0"
+            BorderThickness="0,0,1,0"
+            Padding="8">
+        
+        <StackPanel Orientation="Vertical" Spacing="4">
+            
+            <ToggleButton Width="48" Height="48"
+                          IsChecked="{Binding CurrentTool,
+                                     Converter={x:Static vm:ToolConverter.Instance},
+                                     ConverterParameter={x:Static models:Tool.Pen}}"
+                          ToolTip.Tip="펜 (P)">
+                <TextBlock Text="✏️" FontSize="20"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+            </ToggleButton>
+            <ToggleButton Width="48" Height="48"
+                          IsChecked="{Binding CurrentTool,
+                                    Converter={x:Static vm:ToolConverter.Instance},
+                                    ConverterParameter={x:Static models:Tool.Eraser}}"
+                          ToolTip.Tip="지우개 (E)">
+                <TextBlock Text="🧹" FontSize="20"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+            </ToggleButton>
+            
+        </StackPanel>
+    </Border>
+    
+</UserControl>
