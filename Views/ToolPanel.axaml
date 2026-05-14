@@ -9,6 +9,30 @@
             BorderBrush="#E0E0E0"
             BorderThickness="0,0,1,0"
             Padding="8">
+        <Border.Styles>
+            <Style Selector="ToggleButton">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="CornerRadius" Value="6"/>
+                <Setter Property="Padding" Value="4"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+            
+            <Style Selector="ToggleButton:checked">
+                <Setter Property="Background" Value="#E3F2FD"/>
+                <Setter Property="BorderBrush" Value="#1976D2"/>
+            </Style>
+            
+            <Style Selector="ToggleButton:pointerover">
+                <Setter Property="Background" Value="#F0F0F0"/>
+            </Style>
+            
+            <Style Selector="ToggleButton:checked:pointerover">
+                <Setter Property="Background" Value="#BBDEFB"/>
+            </Style>
+        </Border.Styles>
         
         <StackPanel Orientation="Vertical" Spacing="4">
             

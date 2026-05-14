@@ -13,7 +13,8 @@
   </Window.DataContext>
     <DockPanel>
         <views:ToolPanel DockPanel.Dock="Left"
-                 DataContext="{Binding Canvas}"/>
+                 DataContext="{Binding Canvas}"
+                 Width="64"/>
         
         <Border Padding="16" Background="#F5F5F5">
             <views:DrawingCanvas ViewModel="{Binding Canvas}"/>
