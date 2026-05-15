@@ -10,8 +10,8 @@ namespace drawingapp.net.Views;
 
 public class DrawingCanvas : Control
 { 
-    public static readonly StyledProperty<DrawingCanvasViewModel> ViewModelProperty= 
-        AvaloniaProperty.Register<DrawingCanvas, DrawingCanvasViewModel?>(nameof(ViewModel));
+    public static readonly StyledProperty<DrawingCanvasViewModel?> ViewModelProperty= 
+        AvaloniaProperty.Register<DrawingCanvas, DrawingCanvasViewModel?>(nameof(ViewModel), defaultValue: null);
 
     public DrawingCanvasViewModel? ViewModel
     {

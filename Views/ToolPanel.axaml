@@ -55,6 +55,47 @@
                            VerticalAlignment="Center"/>
             </ToggleButton>
             
+            <Separator Margin="4,8"/>
+            
+            <ItemsControl ItemsSource="{Binding PaletteColors}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" MaxWidth="48"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Width="20" Height="20"
+                                Margin="2"
+                                Padding="0"
+                                CornerRadius="4"
+                                Command="{Binding $parent[ItemsControl].((vm:DrawingCanvasViewModel)DataContext).SelectColorCommand}"
+                                CommandParameter="{Binding}">
+                            <Button.Background>
+                                <SolidColorBrush Color="{Binding}"/>
+                            </Button.Background>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+           
+            <Separator Margin="4,8"/>
+            
+            <StackPanel Spacing="4">
+                <TextBlock Text="굵기" FontSize="11"
+                           Foreground="#666"
+                           HorizontalAlignment="Center"/>
+                <Slider Minimum="1" Maximum="30"
+                        Value="{Binding CurrentThickness}"
+                        Orientation="Vertical"
+                        Height="100"
+                        HorizontalAlignment="Center"/>
+                
+                <TextBlock Text="{Binding CurrentThickness, StringFormat='{}{0:F0}px'}"
+                           FontSize="11"
+                           Foreground="#666"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
         </StackPanel>
     </Border>
     
